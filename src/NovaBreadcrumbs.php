@@ -7,8 +7,6 @@ use Laravel\Nova\Tool;
 
 class NovaBreadcrumbs extends Tool
 {
-    const CONFIG_PATH = __DIR__ . '/../config/nova-breadcrumbs.php';
-
     protected $loadStyles = true;
 
     /**
@@ -22,23 +20,6 @@ class NovaBreadcrumbs extends Tool
         if ($this->loadStyles) {
             Nova::style('nova-breadcrumbs', __DIR__ . '/../dist/css/tool.css');
         }
-
-        $this->publishes([
-            self::CONFIG_PATH => config_path('nova-breadcrumbs.php'),
-        ], 'config');
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->mergeConfigFrom(
-            self::CONFIG_PATH,
-            'nova-breadcrumbs'
-        );
     }
 
     /**

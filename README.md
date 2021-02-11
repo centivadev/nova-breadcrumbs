@@ -17,7 +17,7 @@ composer require chris-ware/nova-breadcrumbs
 This package include some config based options. To use them, first publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="ChrisWare\NovaBreadcrumbs\NovaBreadcrumbs"
+php artisan vendor:publish --provider="ChrisWare\NovaBreadcrumbs\ToolServiceProvider"
 ```
 
 And then you can configure the options editing the `config/nova-breadcrumbs.php` file.
