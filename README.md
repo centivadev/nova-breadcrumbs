@@ -14,6 +14,14 @@ You can install the package in to a Laravel app that uses [Nova](https://nova.la
 composer require chris-ware/nova-breadcrumbs
 ```
 
+This package include some config based options. To use them, first publish the config file:
+
+```bash
+php artisan vendor:publish --provider="ChrisWare\NovaBreadcrumbs\NovaBreadcrumbs"
+```
+
+And then you can configure the options editing the `config/nova-breadcrumbs.php` file.
+
 Next, you must register the tool with Nova. This is typically done in the `tools` method of the `NovaServiceProvider`.
 
 ```php
