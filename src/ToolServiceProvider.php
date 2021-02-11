@@ -8,6 +8,8 @@ use Illuminate\Support\ServiceProvider;
 
 class ToolServiceProvider extends ServiceProvider
 {
+    const CONFIG_PATH = __DIR__ . '/../config/nova-breadcrumbs.php';
+
     /**
      * Bootstrap any application services.
      *
@@ -18,6 +20,10 @@ class ToolServiceProvider extends ServiceProvider
         $this->app->booted(function () {
             $this->routes();
         });
+
+        $this->publishes([
+            self::CONFIG_PATH => config_path('nova-breadcrumbs.php'),
+        ], 'config');
     }
 
     /**
@@ -43,6 +49,9 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            self::CONFIG_PATH,
+            'nova-breadcrumbs'
+        );
     }
 }
