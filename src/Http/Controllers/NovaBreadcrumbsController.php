@@ -34,6 +34,10 @@ class NovaBreadcrumbsController extends Controller
             ->explode('/')
             ->filter();
 
+        if (config('nova-breadcrumbs.hide_on_index_resource') && $pathParts->has(2) == false) {
+            return null;
+        }
+
         if (config('nova-breadcrumbs.append_home')) {
             $this->appendToCrumbs('Home', '/');
         }
